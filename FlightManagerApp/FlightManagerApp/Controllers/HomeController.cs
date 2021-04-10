@@ -86,25 +86,36 @@ namespace FlightManagerApp.Controllers
         {
             using (UserContext context = new UserContext())
             {
-                if (context.Users.Count() == 0)
+                if (userModel.FirstName == null || userModel.LastName == null || userModel.Password == null
+                    || userModel.PersonalId == null || userModel.PersonalId.Length !=10 || userModel.MobileNumber==null || userModel.Username == null)
                 {
-                    userModel.Role = "Admin";
+                    ViewBag.FailedRegisterMessage = "You must fill in all of the spaces!";
+                    return View("Register", new User());
                 }
                 else
                 {
-                    userModel.Role = "Employee";
+
+                    if (context.Users.Count() == 0)
+                    {
+                        userModel.Role = "Admin";
+                    }
+                    else
+                    {
+                        userModel.Role = "Employee";
+                    }
+                    if (context.Users.Any(x => x.Username == userModel.Username))
+                    {
+                        ViewBag.DuplicateMessage = "An User with this user name already exists.";
+                        return View("Register", userModel);
+                    }
+                    context.Users.Add(userModel);
+                    context.SaveChanges();
+
                 }
-                if (context.Users.Any(x => x.Username == userModel.Username))
-                {
-                    ViewBag.DuplicateMessage = "An User with this user name already exists.";
-                    return View("Register", userModel);
-                }
-                context.Users.Add(userModel);
-                context.SaveChanges();
+                ModelState.Clear();
+                ViewBag.SuccessMessage = "Register successful!";
+                return View("~/Home/Index.cshtml");
             }
-            ModelState.Clear();
-            ViewBag.SuccessMessage = "Register successful!";
-            return View("Register", new User());
         }
 
         [HttpGet]
@@ -119,62 +130,79 @@ namespace FlightManagerApp.Controllers
         {
 
             Flight bookedFlight = new Flight();
-            using(FlightContext flightContext = new FlightContext())
+            using (FlightContext flightContext = new FlightContext())
             {
-
-                foreach(var flight in flightContext.Flights)
+                if (reservationModel.FirstName == null || reservationModel.MiddleName == null || reservationModel.LastName == null || reservationModel.PersonalId == null
+                    || reservationModel.Nationality == null || reservationModel.TicketType == null || reservationModel.Email == null || reservationModel.FlightId == 0
+                    || reservationModel.MobileNumber == null)
                 {
-                    if (reservationModel.FlightId == flight.Id) bookedFlight = flight;
-                }
-                
-                if (reservationModel.TicketType.ToLower() == "business")
-                {
-                    if (bookedFlight.UnusedPlacesBusiness <= 0)
-                    {
-                        ViewBag.DuplicateMessage = "There are not enough Business places.";
-                        return View("Reservation", reservationModel);
-                    }
-                    else
-                    {
-                        foreach (var flight in flightContext.Flights)
-                        {
-                            if (reservationModel.FlightId == flight.Id) flight.UnusedPlacesBusiness -= 1;                           
-                        }
-                        flightContext.SaveChanges();
-                    }
+                    ViewBag.FailedRservationMessage = "You must fill in all of the spaces!";
+                    return View("Reservation", new Reservation());
                 }
                 else
                 {
-                    if (bookedFlight.UnusedPlacesEconomy <= 0)
+                    foreach (var flight in flightContext.Flights)
                     {
-                        ViewBag.DuplicateMessage = "There are not enough Economy places.";
-                        return View("Reservation", reservationModel);
+                        if (reservationModel.FlightId == flight.Id) bookedFlight = flight;
+                    }
+
+                    if (reservationModel.TicketType.ToLower() == "business")
+                    {
+                        if (bookedFlight.UnusedPlacesBusiness <= 0)
+                        {
+                            ViewBag.DuplicateMessage = "There are not enough Business places.";
+                            return View("Reservation", reservationModel);
+                        }
+                        else
+                        {
+                            foreach (var flight in flightContext.Flights)
+                            {
+                                if (reservationModel.FlightId == flight.Id) flight.UnusedPlacesBusiness -= 1;
+                            }
+                            flightContext.SaveChanges();
+                        }
                     }
                     else
                     {
-                        foreach (var flight in flightContext.Flights)
+                        if (bookedFlight.UnusedPlacesEconomy <= 0)
                         {
-                            if (reservationModel.FlightId == flight.Id) flight.UnusedPlacesEconomy -= 1;
+                            ViewBag.DuplicateMessage = "There are not enough Economy places.";
+                            return View("Reservation", reservationModel);
                         }
-                        flightContext.SaveChanges();
+                        else
+                        {
+                            foreach (var flight in flightContext.Flights)
+                            {
+                                if (reservationModel.FlightId == flight.Id) flight.UnusedPlacesEconomy -= 1;
+                            }
+                            flightContext.SaveChanges();
+                        }
                     }
+
+
+                    using (ReservationContext reservationContext = new ReservationContext())
+                    {
+                        reservationContext.Reservations.Add(reservationModel);
+                        reservationContext.SaveChanges();
+                    }
+                    ModelState.Clear();
+                    ViewBag.SuccessMessage = "Reservation successful!";
+                    MailMessage o = new MailMessage("taisan9931@hotmail.com", $"{reservationModel.Email}",
+                        "Flight Ticket", $"Hello, Mr/Mrs{reservationModel.LastName}," + $" Your flight ticket was booked successfully!" + "    " +
+                        $"Departure : {bookedFlight.FromLocation}" + "    " +
+                        $"Arrival : {bookedFlight.ToLocation}" + "    " +
+                        $"Departure Time : {bookedFlight.DepartureTime}" + "    " +
+                        $"Arrival Time : {bookedFlight.ArrivalTime}" + "    " +
+                        $"Class : {reservationModel.TicketType}" + "    " +
+                        $"Have a good flight!");
+                    NetworkCredential netCred = new NetworkCredential("taisan9931@hotmail.com", "taisan993");
+                    SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
+                    smtpobj.EnableSsl = true;
+                    smtpobj.Credentials = netCred;
+                    smtpobj.Send(o);
+                    return View("Reservation", new Reservation());
                 }
             }
-            
-            using(ReservationContext reservationContext = new ReservationContext())
-            {
-                reservationContext.Reservations.Add(reservationModel);
-                reservationContext.SaveChanges();
-            }
-            ModelState.Clear();
-            ViewBag.SuccessMessage = "Reservation successful!";
-            MailMessage o = new MailMessage("taisan9931@hotmail.com", $"{reservationModel.Email}", "Flight Ticket", $"Hello, Mr/Mrs{reservationModel.LastName}, Your flight ticket was booked successfuly!");
-            NetworkCredential netCred = new NetworkCredential("taisan9931@hotmail.com", "taisan993");
-            SmtpClient smtpobj = new SmtpClient("smtp.live.com", 587);
-            smtpobj.EnableSsl = true;
-            smtpobj.Credentials = netCred;
-            smtpobj.Send(o);
-            return View("Reservation", new Reservation());
         }
 
         public ActionResult Logout()

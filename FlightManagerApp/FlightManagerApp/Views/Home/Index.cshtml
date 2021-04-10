@@ -39,7 +39,7 @@
                             <th>Departure</th>
                             <th>Arrival</th>
                             <th>Departure Time</th>
-                            <th>Arrival Time</th>
+                            <th>Flight Duration</th>
                             <th>Airplane</th>
                             <th>Airplane Id</th>
                             <th>Pilot Name</th>
@@ -54,7 +54,7 @@
                                 <td>@flight.FromLocation</td>
                                 <td>@flight.ToLocation</td>
                                 <td>@flight.DepartureTime</td>
-                                <td>@flight.ArrivalTime</td>
+                                <td>@(flight.ArrivalTime - flight.DepartureTime)</td>
                                 <td>@flight.AirplaneType</td>
                                 <td>@flight.AirplaneId</td>
                                 <td>@flight.PilotName</td>

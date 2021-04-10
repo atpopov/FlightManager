@@ -4,6 +4,7 @@
 	var loggedInUser = (Data.Model.User)TempData["Admin"];
 	TempData["Admin"] = loggedInUser;
 	Data.Data.UserContext userContext = new Data.Data.UserContext();
+	Data.Data.FlightContext flightContext = new Data.Data.FlightContext();
 }
 
 <head>
@@ -31,7 +32,7 @@
 		<main>
 			<div class="jumbotron mt-3 flightm-color">
 				<h1>All Users</h1>
-				<a class="active" href="/Admin/Edit">Edit an user</a>
+				<a class="active" href="/Admin/EditUser">Edit an user</a>
 				<hr class="bg-white" />
 				<table width:"100%" id="myTable">
 					<tr>
@@ -59,6 +60,47 @@
 						</tr>
 					}
 				</table>
+
+			</div>
+
+			<div class="jumbotron mt-3 flightm-color">
+				<h1>All Flights</h1>
+				<a class="active" href="/Admin/EditFlight">Edit a flight</a>
+				<a>|</a>
+				<a class="active" href="/Admin/AddFlight">Add a new flight</a>
+				<hr class="bg-white" />
+
+				<table width:"100%" id="myTable">
+					<tr>
+						<th>Id</th>
+						<th>Departure</th>
+						<th>Arrival</th>
+						<th>Departure Time</th>
+						<th>Flight Duration</th>
+						<th>Airplane</th>
+						<th>Airplane Id</th>
+						<th>Pilot Name</th>
+						<th>Economy Places Free</th>
+						<th>Business Places Free</th>
+					</tr>
+
+					@foreach (var flight in flightContext.Flights)
+					{
+						<tr>
+							<td>@flight.Id</td>
+							<td>@flight.FromLocation</td>
+							<td>@flight.ToLocation</td>
+							<td>@flight.DepartureTime</td>
+							<td>@(flight.ArrivalTime - flight.DepartureTime)</td>
+							<td>@flight.AirplaneType</td>
+							<td>@flight.AirplaneId</td>
+							<td>@flight.PilotName</td>
+							<td>@flight.UnusedPlacesEconomy</td>
+							<td>@flight.UnusedPlacesBusiness</td>
+						</tr>
+					}
+				</table>
+
 
 			</div>
 		</main>

@@ -146,10 +146,10 @@
     <Content Include="Content\reset-css.css" />
     <Content Include="Content\script.js" />
     <Content Include="Content\style.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -180,7 +180,10 @@
     <Content Include="Views\Employee\Home.cshtml" />
     <Content Include="Views\Home\Logout.cshtml" />
     <Content Include="Views\Home\Reservation.cshtml" />
-    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\EditFlight.cshtml" />
+    <Content Include="Views\Admin\AddFlight.cshtml" />
+    <Content Include="Views\Employee\Reservation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -12,3 +12,17 @@ C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Business\obj\Debug\Busines
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Business\obj\Debug\Business.csproj.CopyComplete
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Business\obj\Debug\Business.dll
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Business\obj\Debug\Business.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Business.dll.config
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Business.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Business.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Data.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\EntityFramework.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Data.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\Data.dll.config
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\EntityFramework.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.csprojAssemblyReference.cache
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.csproj.CopyComplete
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.pdb

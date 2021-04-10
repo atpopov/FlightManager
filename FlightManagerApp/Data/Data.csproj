@@ -74,6 +74,14 @@
     <Compile Include="Migrations\202104062259288_AddEmailColumn.designer.cs">
       <DependentUpon>202104062259288_AddEmailColumn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104101808499_ValidationsMigration.cs" />
+    <Compile Include="Migrations\202104101808499_ValidationsMigration.designer.cs">
+      <DependentUpon>202104101808499_ValidationsMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104101810203_ValidationMigration1.cs" />
+    <Compile Include="Migrations\202104101810203_ValidationMigration1.designer.cs">
+      <DependentUpon>202104101810203_ValidationMigration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Flight.cs" />
     <Compile Include="Model\Reservation.cs" />
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104062259288_AddEmailColumn.resx">
       <DependentUpon>202104062259288_AddEmailColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104101808499_ValidationsMigration.resx">
+      <DependentUpon>202104101808499_ValidationsMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104101810203_ValidationMigration1.resx">
+      <DependentUpon>202104101810203_ValidationMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,3 +15,22 @@ C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Data\obj\Debug\Data.Migrat
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Data\obj\Debug\Data.Migrations.FlightId.resources
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Data\obj\Debug\Data.Migrations.AddForeignKey1.resources
 C:\Users\taisa\Desktop\Visual Studio\FlightManagerApp\Data\obj\Debug\Data.Migrations.AddEmailColumn.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\Data.dll.config
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\Data.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\Data.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\EntityFramework.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\EntityFramework.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.csprojAssemblyReference.cache
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.Initial.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.Initial2.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.FlightId.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.AddForeignKey1.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.AddEmailColumn.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.csproj.GenerateResource.cache
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.csproj.CopyComplete
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.ValidationsMigration.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.ValidationMigration1.resources
