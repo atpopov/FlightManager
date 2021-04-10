@@ -1,0 +1,161 @@
+﻿@model Data.Model.Flight
+
+@{
+    ViewBag.Title = "FlightDetails";
+    var loggedInUser = (Data.Model.User)TempData["Admin"];
+    TempData["Admin"] = loggedInUser;
+    Data.Data.UserContext userContext = new Data.Data.UserContext();
+    Data.Data.FlightContext flightContext = new Data.Data.FlightContext();
+    Data.Data.ReservationContext reservationContext = new Data.Data.ReservationContext();
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Flight Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/reset-css.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+    <link rel="jssheet" href="~/Content/script.js">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar flightm-color">
+                <a class="active" href="/Admin/Home">
+                    <img class="image" src="~/Content/logo1.png" width=10% height=18% />
+                </a>
+                <ul>
+                    <li> <a class="nac-link-dark" style="float:right; margin-right:20px; text-align:center">Welcome, @loggedInUser.Username!</a></li>
+                    <li> <a class="active" href="/Home/Logout" style="float:right; margin-right:20px; text-align:center">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="jumbotron mt-3 flightm-color">
+            <h4>Flight with Id @Model.Id</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Departure Location
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FromLocation)
+                </dd>
+
+                <dt>
+                    Arrival Location
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ToLocation)
+                </dd>
+
+                <dt>
+                    Departure Time
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DepartureTime)
+                </dd>
+
+                <dt>
+                    Arrival Time
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ArrivalTime)
+                </dd>
+
+                <dt>
+                    Flight Duration
+                </dt>
+
+                <dd>
+                    @(Model.ArrivalTime - Model.DepartureTime)
+                </dd>
+
+                <dt>
+                    Airplane Type
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AirplaneType)
+                </dd>
+
+                <dt>
+                    Airplane Id
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AirplaneId)
+                </dd>
+
+                <dt>
+                    Pilot Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PilotName)
+                </dd>
+
+                <dt>
+                    Economy Places
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UnusedPlacesEconomy)
+                </dd>
+
+                <dt>
+                    Business Places
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UnusedPlacesBusiness)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="jumbotron mt-3 flightm-color">
+            <h4>List of Attendance</h4>
+
+            <table width:"100%" id="myTable">
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Personal Id</th>
+                    <th>Mobile Number</th>
+                    <th>Nationality</th>
+                    <th>Ticket Type</th>
+                    <th>Email</th>
+                </tr>
+
+                @foreach (var reservation in reservationContext.Reservations)
+                {
+                    <tr>
+                        @if (reservation.FlightId == Model.Id)
+                        {
+                            <td>@reservation.Id</td>
+                            <td>@reservation.FirstName</td>
+                            <td>@reservation.MiddleName</td>
+                            <td>@reservation.LastName</td>
+                            <td>@reservation.PersonalId</td>
+                            <td>@reservation.MobileNumber</td>
+                            <td>@reservation.Nationality</td>
+                            <td>@reservation.TicketType</td>
+                            <td>@reservation.Email</td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+
+

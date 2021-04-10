@@ -18,6 +18,7 @@ namespace FlightManagerApp.Controllers
             return View();
         }
 
+        //Get Method for the Reservation Page
         [HttpGet]
         public ActionResult Reservation(int id = 0)
         {
@@ -25,6 +26,7 @@ namespace FlightManagerApp.Controllers
             return View(reservationModel);
         }
 
+        //Post Method for the Reservation Page with the Email sending functionality
         [HttpPost]
         public ActionResult Reservation(Reservation reservationModel)
         {
@@ -103,6 +105,21 @@ namespace FlightManagerApp.Controllers
                     return View("Reservation", new Reservation());
                 }
             }
+        }
+
+        //Method for displaying the details of a flight
+        public ActionResult FlightDetails(int id = 0)
+        {
+            using (FlightContext flightContext = new FlightContext())
+            {
+                Flight flight = flightContext.Flights.First(x => x.Id == id);
+                if (flight == null)
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                }
+                return View(flight);
+            }
+
         }
     }
 }

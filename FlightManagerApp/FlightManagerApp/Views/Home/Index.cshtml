@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Home Page";
     Data.Data.FlightContext flightContext = new Data.Data.FlightContext();
 }
@@ -45,6 +46,7 @@
                             <th>Pilot Name</th>
                             <th>Economy Places Free</th>
                             <th>Business Places Free</th>
+                            <th>Flight Details</th>
                         </tr>
 
                         @foreach (var flight in flightContext.Flights)
@@ -60,7 +62,11 @@
                                 <td>@flight.PilotName</td>
                                 <td>@flight.UnusedPlacesEconomy</td>
                                 <td>@flight.UnusedPlacesBusiness</td>
+                                <td>
+                                <a class="active" href="/Home/FlightDetails/@flight.Id">Details</a>
+                                </td>
                             </tr>
+
                         }
                     </table>
 

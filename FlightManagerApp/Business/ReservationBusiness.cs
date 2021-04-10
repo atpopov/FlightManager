@@ -12,6 +12,7 @@ namespace Business
     {
         private ReservationContext context;
 
+        //Makes a list with all of the Reservations in the Database
         public List<Reservation> GetAll()
         {
             using (context = new ReservationContext())

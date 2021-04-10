@@ -174,3 +174,7 @@ C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\obj\Debug\
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\obj\Debug\FlightManagerApp.csproj.CopyComplete
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\obj\Debug\FlightManagerApp.dll
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\obj\Debug\FlightManagerApp.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\bin\PagedList.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\bin\PagedList.Mvc.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\bin\PagedList.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\FlightManagerApp\bin\PagedList.Mvc.xml

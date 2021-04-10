@@ -20,20 +20,7 @@ namespace FlightManagerApp.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
+        //Get Method for the Login Page
         [HttpGet]
         public ActionResult Login(int id = 0)
         {
@@ -41,6 +28,7 @@ namespace FlightManagerApp.Controllers
             return View(userModel);
         }
 
+        //Post Method for the Login Page
         [HttpPost]
         public ActionResult Login(User userModel)
         {
@@ -48,7 +36,6 @@ namespace FlightManagerApp.Controllers
             {
                 if (context.Users.Any(x => x.Username == userModel.Username && x.Password == userModel.Password))
                 {
-                    //successfulLogin = true;
                     var ddd = context.Users.Where(x => x.Username == userModel.Username && x.Password == userModel.Password);
                     loggedInUser = userModel;
 
@@ -73,7 +60,8 @@ namespace FlightManagerApp.Controllers
                 }
             }
         }
-            
+        
+        //Get Method for the Registration Page
         [HttpGet]
         public ActionResult Register(int id = 0)
         {
@@ -81,6 +69,7 @@ namespace FlightManagerApp.Controllers
             return View(userModel);
         }
 
+        //Post Method for the Registration Page
         [HttpPost]
         public ActionResult Register(User userModel)
         {
@@ -118,6 +107,7 @@ namespace FlightManagerApp.Controllers
             }
         }
 
+        //Get Method for the Reservation Page
         [HttpGet]
         public ActionResult Reservation(int id = 0)
         {
@@ -125,6 +115,7 @@ namespace FlightManagerApp.Controllers
             return View(reservationModel);
         }
 
+        //Post Method for the Reservation Page with the Email Sending functionality
         [HttpPost]
         public ActionResult Reservation(Reservation reservationModel)
         {
@@ -205,6 +196,22 @@ namespace FlightManagerApp.Controllers
             }
         }
 
+        //Method for displaying the details of a flight
+        public ActionResult FlightDetails(int id=0)
+        {
+            using(FlightContext flightContext = new FlightContext())
+            {
+                Flight flight = flightContext.Flights.First(x => x.Id == id);
+                if (flight == null)
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                }                
+                return View(flight);
+            }
+           
+        }
+
+        //Method for Logout
         public ActionResult Logout()
         {
             loggedInUser = null;

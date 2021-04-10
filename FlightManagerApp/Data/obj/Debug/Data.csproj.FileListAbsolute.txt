@@ -34,3 +34,7 @@ C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.dll
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.pdb
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.ValidationsMigration.resources
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\obj\Debug\Data.Migrations.ValidationMigration1.resources
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\PagedList.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\PagedList.Mvc.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\PagedList.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Data\bin\Debug\PagedList.Mvc.xml

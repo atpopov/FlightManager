@@ -12,6 +12,7 @@ namespace Business
     {
         private FlightContext context;
 
+        //Makes a list that contains all Flights in the Database
         public List<Flight> GetAll()
         {
             using (context = new FlightContext())

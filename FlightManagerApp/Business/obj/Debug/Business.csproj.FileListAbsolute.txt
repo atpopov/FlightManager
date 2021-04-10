@@ -26,3 +26,7 @@ C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.csproj.CopyComplete
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.dll
 C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\obj\Debug\Business.pdb
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\PagedList.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\PagedList.Mvc.dll
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\PagedList.xml
+C:\Users\taisa\Desktop\VisualStudio\FlightManagerApp\Business\bin\Debug\PagedList.Mvc.xml

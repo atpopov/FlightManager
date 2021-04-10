@@ -24,7 +24,7 @@
 					<img class="image" src="~/Content/logo1.png" width=10% height=18% />
 				</a>
 				<ul>
-					<li> <a class="nac-link-dark" style="float:right; margin-right:20px; text-align:center">Welcome, Admin!</a></li>
+					<li> <a class="nac-link-dark" style="float:right; margin-right:20px; text-align:center">Welcome, @loggedInUser.Username!</a></li>
 					<li> <a class="active" href="/Home/Logout" style="float:right; margin-right:20px; text-align:center">Logout</a></li>
 				</ul>
 			</nav>
@@ -82,6 +82,7 @@
 						<th>Pilot Name</th>
 						<th>Economy Places Free</th>
 						<th>Business Places Free</th>
+						<th>Flight Details</th>
 					</tr>
 
 					@foreach (var flight in flightContext.Flights)
@@ -97,7 +98,11 @@
 							<td>@flight.PilotName</td>
 							<td>@flight.UnusedPlacesEconomy</td>
 							<td>@flight.UnusedPlacesBusiness</td>
+							<td>
+								<a class="active" href="/Home/FlightDetails/@flight.Id">Details</a>
+							</td>
 						</tr>
+
 					}
 				</table>
 

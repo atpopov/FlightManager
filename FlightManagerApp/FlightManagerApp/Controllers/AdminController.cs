@@ -20,6 +20,7 @@ namespace FlightManagerApp.Controllers
         }
 
 
+        //Get Method for the Edit User Page
         [HttpGet]
         public ActionResult EditUser(int id=0)
         {
@@ -27,6 +28,7 @@ namespace FlightManagerApp.Controllers
             return View(userModel);
         }
 
+        //Post Method for the Edit User Page
         [HttpPost]
         public ActionResult EditUser(User userModel)
         {
@@ -53,6 +55,7 @@ namespace FlightManagerApp.Controllers
             }
         }
 
+        //Get Method for the Edit Flight Page
         [HttpGet]
         public ActionResult EditFlight(int id = 0)
         {
@@ -60,6 +63,7 @@ namespace FlightManagerApp.Controllers
             return View(flightModel);
         }
 
+        //Post Method for the Edit Flight Page
         [HttpPost]
         public ActionResult EditFlight(Flight flightModel)
         {
@@ -87,6 +91,7 @@ namespace FlightManagerApp.Controllers
             }
         }
 
+        //Get Method for the Add Flight Page
         [HttpGet]
         public ActionResult AddFlight(int id = 0)
         {
@@ -94,6 +99,7 @@ namespace FlightManagerApp.Controllers
             return View(flightModel);
         }
 
+        //Post Method for the Add Flight Page
         [HttpPost]
         public ActionResult AddFlight(Flight flightModel)
         {
@@ -115,6 +121,21 @@ namespace FlightManagerApp.Controllers
             ModelState.Clear();
             ViewBag.SuccessMessage = "Flight was successfully added!";
             return View("~/Views/Admin/Home.cshtml");
+        }
+
+        //Method for displaying the details of a flight
+        public ActionResult FlightDetails(int id = 0)
+        {
+            using (FlightContext flightContext = new FlightContext())
+            {
+                Flight flight = flightContext.Flights.First(x => x.Id == id);
+                if (flight == null)
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                }
+                return View(flight);
+            }
+
         }
     }
 }
