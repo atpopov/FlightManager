@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightManagerApp", "FlightManagerApp\FlightManagerApp.csproj", "{5960D57D-32F4-42D0-9A5E-B70252A0646F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{553BDD91-876F-4DAC-A4CE-D2608519AD4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{1BEB6730-21C8-4D0F-B38A-5E21A02B54E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5960D57D-32F4-42D0-9A5E-B70252A0646F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5960D57D-32F4-42D0-9A5E-B70252A0646F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5960D57D-32F4-42D0-9A5E-B70252A0646F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5960D57D-32F4-42D0-9A5E-B70252A0646F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{553BDD91-876F-4DAC-A4CE-D2608519AD4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{553BDD91-876F-4DAC-A4CE-D2608519AD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{553BDD91-876F-4DAC-A4CE-D2608519AD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{553BDD91-876F-4DAC-A4CE-D2608519AD4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEB6730-21C8-4D0F-B38A-5E21A02B54E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEB6730-21C8-4D0F-B38A-5E21A02B54E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEB6730-21C8-4D0F-B38A-5E21A02B54E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEB6730-21C8-4D0F-B38A-5E21A02B54E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F4B404C-F638-4B28-A826-D774DE05EF82}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Data.Data.FlightContext flightContext = new Data.Data.FlightContext();
+}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>Flight Manager</title>
+        <link rel="stylesheet" type="text/css" href="~/Content/reset-css.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+        <link rel="jssheet" href="~/Content/script.js">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <header>
+                <nav class="navbar flightm-color">
+                    <a class="active" href="/Home/Index">
+                        <img class="image" src="~/Content/logo1.png" width=10% height=18% />
+                    </a>
+                    <h1 style="float:right; text-align:justify; margin-right:40%">Flight Manager</h1>
+                    <ul>
+                        <li> <a class="nac-link-dark" href="/Home/Login" style="float:right; margin-right:2%; text-align:center">Login</a></li>
+                        <li> <a class="active" href="/Home/Register" style="float:right; margin-right:2%; text-align:center">New account</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <!--<input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Search..">-->
+                <div class="jumbotron mt-3 flightm-color">
+                    <h1>All Flights</h1>
+                    <a class="active" href="/Home/Reservation">Book a place</a>
+                    <hr class="bg-white" />
+                    <table width:"100%" id="myTable">
+                        <tr>
+                            <th>Id</th>
+                            <th>Departure</th>
+                            <th>Arrival</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Airplane</th>
+                            <th>Airplane Id</th>
+                            <th>Pilot Name</th>
+                            <th>Economy Places Free</th>
+                            <th>Business Places Free</th>
+                        </tr>
+
+                        @foreach (var flight in flightContext.Flights)
+                        {
+                            <tr>
+                                <td>@flight.Id</td>
+                                <td>@flight.FromLocation</td>
+                                <td>@flight.ToLocation</td>
+                                <td>@flight.DepartureTime</td>
+                                <td>@flight.ArrivalTime</td>
+                                <td>@flight.AirplaneType</td>
+                                <td>@flight.AirplaneId</td>
+                                <td>@flight.PilotName</td>
+                                <td>@flight.UnusedPlacesEconomy</td>
+                                <td>@flight.UnusedPlacesBusiness</td>
+                            </tr>
+                        }
+                    </table>
+
+                </div>
+            </main>
+        </div>
+    </body>

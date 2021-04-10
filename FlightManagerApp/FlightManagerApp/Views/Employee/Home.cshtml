@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    var loggedInUser = (Data.Model.User)TempData["Employee"];
+	TempData["Employee"] = loggedInUser;
+}
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Flight Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/reset-css.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar flightm-color">
+                <a class="active" href="/Home/Index">
+                    <img class="image" src="~/Content/logo1.png" width=10% height=18% />
+                </a>
+                <ul>
+                    <li> <a class="nac-link-dark" style="float:right; margin-right:20px; text-align:center">Welcome, @loggedInUser.FirstName</a></li>
+                    <li> <a class="active" href="/Home/Logout" style="float:right; margin-right:20px; text-align:center">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="jumbotron mt-3 flightm-color">
+                <h1>Flight Manager</h1>
+                <hr class="bg-white" />
+            </div>
+        </main>
+    </div>
+</body>
+
