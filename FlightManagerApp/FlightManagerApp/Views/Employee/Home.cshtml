@@ -23,7 +23,7 @@
 	<div class="container-fluid">
 		<header>
 			<nav class="navbar flightm-color">
-				<a class="active" href="/Home/Index">
+				<a class="active" href="/Employee/Home">
 					<img class="image" src="~/Content/logo1.png" width=10% height=18% />
 				</a>
 				<ul>
@@ -36,7 +36,7 @@
 			<!--<input type="text" id="searchBar" onkeyup="myFunction()" placeholder="Search..">-->
 			<div class="jumbotron mt-3 flightm-color">
 				<h1>All Flights</h1>
-				<a class="active" href="/Home/Reservation">Book a place</a>
+				<a class="active" href="/Employee/Reservation">Book a place</a>
 				<hr class="bg-white" />
 				<table width:"100%" id="myTable">
 					<tr>
@@ -67,7 +67,7 @@
 							<td>@flight.UnusedPlacesEconomy</td>
 							<td>@flight.UnusedPlacesBusiness</td>
 							<td>
-								<a class="active" href="/Home/FlightDetails/@flight.Id">Details</a>
+								<a class="active" href="/Employee/FlightDetails/@flight.Id">Details</a>
 							</td>
 						</tr>
 

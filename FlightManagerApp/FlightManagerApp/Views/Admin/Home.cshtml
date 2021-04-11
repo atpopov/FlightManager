@@ -83,6 +83,7 @@
 						<th>Economy Places Free</th>
 						<th>Business Places Free</th>
 						<th>Flight Details</th>
+						<th>Delete Flight</th>
 					</tr>
 
 					@foreach (var flight in flightContext.Flights)
@@ -99,7 +100,10 @@
 							<td>@flight.UnusedPlacesEconomy</td>
 							<td>@flight.UnusedPlacesBusiness</td>
 							<td>
-								<a class="active" href="/Home/FlightDetails/@flight.Id">Details</a>
+								<a class="active" href="/Admin/FlightDetails/@flight.Id">Details</a>
+							</td>
+							<td>
+								<a class="active" href="/Admin/RemoveFlight/@flight.Id">Remove</a>
 							</td>
 						</tr>
 

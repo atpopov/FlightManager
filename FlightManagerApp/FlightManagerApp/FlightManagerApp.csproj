@@ -194,6 +194,7 @@
     <Content Include="Views\Home\FlightDetails.cshtml" />
     <Content Include="Views\Employee\FlightDetails.cshtml" />
     <Content Include="Views\Admin\FlightDetails.cshtml" />
+    <Content Include="Views\Admin\RemoveFlight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

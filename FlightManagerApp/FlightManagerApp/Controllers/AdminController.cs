@@ -70,8 +70,7 @@ namespace FlightManagerApp.Controllers
             using(flightContext = new FlightContext())
             {
                 if (flightModel.FromLocation == null || flightModel.ToLocation == null || flightModel.DepartureTime == null || flightModel.ArrivalTime == null
-                    || flightModel.AirplaneType == null || flightModel.AirplaneId == null || flightModel.PilotName == null ||
-                    flightModel.UnusedPlacesBusiness <= 0 || flightModel.UnusedPlacesEconomy <= 0 || flightModel.DepartureTime>flightModel.ArrivalTime)
+                    || flightModel.AirplaneType == null || flightModel.AirplaneId == null || flightModel.PilotName == null)
                 {
                     ViewBag.FailedAddMessage = "You must fill in all of the spaces and the data should be correct!";
                     return View("EditFlight", new Flight());
@@ -136,6 +135,34 @@ namespace FlightManagerApp.Controllers
                 return View(flight);
             }
 
+        }
+
+        //Get metgod to remove a flight
+        [HttpGet]
+        public ActionResult RemoveFlight(int id=0)
+        {
+            using (FlightContext flightContext = new FlightContext())
+            {
+                Flight flight = flightContext.Flights.First(x => x.Id == id);
+                if (flight == null)
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                }
+                return View(flight);
+            }            
+        }
+
+        //Post method to remove a flight
+        [HttpPost]
+        public ActionResult RemoveFlight(Flight flight)
+        {
+            using(flightContext = new FlightContext())
+            {
+                Flight toRemove = flightContext.Flights.Find(flight.Id);
+                flightContext.Flights.Remove(toRemove);
+                flightContext.SaveChanges();
+                return View("~/Views/Admin/Home.cshtml");
+            }
         }
     }
 }

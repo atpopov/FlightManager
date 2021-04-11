@@ -1,34 +1,107 @@
-﻿function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
+﻿$.fn.pageMe = function (opts) {
+    var $this = this,
+        defaults = {
+            perPage: 7,
+            showPrevNext: false,
+            hidePageNumbers: false
+        },
+        settings = $.extend(defaults, opts);
 
-var flight = getParameterByName('fruit');
+    var listElement = $this;
+    var perPage = settings.perPage;
+    var children = listElement.children();
+    var pager = $('.pager');
 
-
-function myFunction() {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchBar");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[0];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
+    if (typeof settings.childSelector != "undefined") {
+        children = listElement.find(settings.childSelector);
     }
-}
+
+    if (typeof settings.pagerSelector != "undefined") {
+        pager = $(settings.pagerSelector);
+    }
+
+    var numItems = children.size();
+    var numPages = Math.ceil(numItems / perPage);
+
+    pager.data("curr", 0);
+
+    if (settings.showPrevNext) {
+        $('<li><a href="#" class="prev_link">«</a></li>').appendTo(pager);
+    }
+
+    var curr = 0;
+    while (numPages > curr && (settings.hidePageNumbers == false)) {
+        $('<li><a href="#" class="page_link">' + (curr + 1) + '</a></li>').appendTo(pager);
+        curr++;
+    }
+
+    if (settings.showPrevNext) {
+        $('<li><a href="#" class="next_link">»</a></li>').appendTo(pager);
+    }
+
+    pager.find('.page_link:first').addClass('active');
+    pager.find('.prev_link').hide();
+    if (numPages <= 1) {
+        pager.find('.next_link').hide();
+    }
+    pager.children().eq(1).addClass("active");
+
+    children.hide();
+    children.slice(0, perPage).show();
+
+    pager.find('li .page_link').click(function () {
+        var clickedPage = $(this).html().valueOf() - 1;
+        goTo(clickedPage, perPage);
+        return false;
+    });
+    pager.find('li .prev_link').click(function () {
+        previous();
+        return false;
+    });
+    pager.find('li .next_link').click(function () {
+        next();
+        return false;
+    });
+
+    function previous() {
+        var goToPage = parseInt(pager.data("curr")) - 1;
+        goTo(goToPage);
+    }
+
+    function next() {
+        goToPage = parseInt(pager.data("curr")) + 1;
+        goTo(goToPage);
+    }
+
+    function goTo(page) {
+        var startAt = page * perPage,
+            endOn = startAt + perPage;
+
+        children.css('display', 'none').slice(startAt, endOn).show();
+
+        if (page >= 1) {
+            pager.find('.prev_link').show();
+        }
+        else {
+            pager.find('.prev_link').hide();
+        }
+
+        if (page < (numPages - 1)) {
+            pager.find('.next_link').show();
+        }
+        else {
+            pager.find('.next_link').hide();
+        }
+
+        pager.data("curr", page);
+        pager.children().removeClass("active");
+        pager.children().eq(page + 1).addClass("active");
+
+    }
+};
+
+$(document).ready(function () {
+
+    $('#myTableBody').pageMe({ pagerSelector: '#myPager', showPrevNext: true, hidePageNumbers: false, perPage: 4 });
+
+});

@@ -62,6 +62,10 @@ footer {
     width: 98%;
 }
 
+.table-responsive {
+    height: 180px;
+}
+
 /*.product {*/
 /*word-wrap: break-word;*/
 /*}*/

@@ -34,41 +34,52 @@
                     <h1>All Flights</h1>
                     <a class="active" href="/Home/Reservation">Book a place</a>
                     <hr class="bg-white" />
-                    <table width:"100%" id="myTable">
-                        <tr>
-                            <th>Id</th>
-                            <th>Departure</th>
-                            <th>Arrival</th>
-                            <th>Departure Time</th>
-                            <th>Flight Duration</th>
-                            <th>Airplane</th>
-                            <th>Airplane Id</th>
-                            <th>Pilot Name</th>
-                            <th>Economy Places Free</th>
-                            <th>Business Places Free</th>
-                            <th>Flight Details</th>
-                        </tr>
+                    <div class="container">
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table width:"100%" class=" table table-hover" id="myTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Departure</th>
+                                            <th>Arrival</th>
+                                            <th>Departure Time</th>
+                                            <th>Flight Duration</th>
+                                            <th>Airplane</th>
+                                            <th>Airplane Id</th>
+                                            <th>Pilot Name</th>
+                                            <th>Economy Places Free</th>
+                                            <th>Business Places Free</th>
+                                        </tr>
+                                    </thead>
 
-                        @foreach (var flight in flightContext.Flights)
-                        {
-                            <tr>
-                                <td>@flight.Id</td>
-                                <td>@flight.FromLocation</td>
-                                <td>@flight.ToLocation</td>
-                                <td>@flight.DepartureTime</td>
-                                <td>@(flight.ArrivalTime - flight.DepartureTime)</td>
-                                <td>@flight.AirplaneType</td>
-                                <td>@flight.AirplaneId</td>
-                                <td>@flight.PilotName</td>
-                                <td>@flight.UnusedPlacesEconomy</td>
-                                <td>@flight.UnusedPlacesBusiness</td>
-                                <td>
-                                <a class="active" href="/Home/FlightDetails/@flight.Id">Details</a>
-                                </td>
-                            </tr>
+                                    @foreach (var flight in flightContext.Flights)
+                                    {
+                                        <tbody id="myTableBody">
+                                            <tr class="success">
+                                                <td>@flight.Id</td>
+                                                <td>@flight.FromLocation</td>
+                                                <td>@flight.ToLocation</td>
+                                                <td>@flight.DepartureTime</td>
+                                                <td>@(flight.ArrivalTime - flight.DepartureTime)</td>
+                                                <td>@flight.AirplaneType</td>
+                                                <td>@flight.AirplaneId</td>
+                                                <td>@flight.PilotName</td>
+                                                <td>@flight.UnusedPlacesEconomy</td>
+                                                <td>@flight.UnusedPlacesBusiness</td>
+                                            </tr>
+                                        </tbody>
 
-                        }
-                    </table>
+                                    }
+                                </table>
+                                <div class="col-md-12 text-center">
+                                    <ul class="pagination pagination-lg pager" id="myPager"></ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
 
                 </div>
             </main>
